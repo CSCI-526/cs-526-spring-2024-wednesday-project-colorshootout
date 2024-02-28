@@ -1,4 +1,0 @@
-repository "526_ColorShootout@NothingToSay0031@cloud"
-  path "/"
-    br "/main"
-    co "/main"
