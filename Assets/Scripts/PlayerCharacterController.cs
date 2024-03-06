@@ -186,6 +186,8 @@ namespace Unity.FPS
             // check for Y kill
             if (!IsDead && transform.position.y < KillHeight)
             {
+                Form form = FindObjectOfType<Form>();
+                form.Send(Form.EndType.Fall);
                 m_Health.Kill();
             }
 
@@ -419,6 +421,11 @@ namespace Unity.FPS
         {
             Vector3 directionRight = Vector3.Cross(direction, transform.up);
             return Vector3.Cross(slopeNormal, directionRight).normalized;
+        }
+
+        public void KillMySelf()
+        {
+            m_Health.Kill();
         }
 
         void UpdateCharacterHeight(bool force)

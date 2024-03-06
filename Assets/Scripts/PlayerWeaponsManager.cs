@@ -2,6 +2,7 @@
 using Unity.FPS;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Unity.FPS
 {
@@ -119,6 +120,19 @@ namespace Unity.FPS
             }
 
             SwitchWeapon(true);
+            if (SceneManager.GetActiveScene().name == "Level 1") { 
+            NotificationHUDManager notification = FindObjectOfType<NotificationHUDManager>();
+            notification.CreateNotification("Press TAB to review.");
+            notification.CreateNotification("Orange transparent sphere: target.");
+            notification.CreateNotification("Left click to shoot, right click to aim.");
+            notification.CreateNotification("WASD to move, SPACE to jump.");
+            } else if (SceneManager.GetActiveScene().name == "Level 2")
+            {
+                NotificationHUDManager notification = FindObjectOfType<NotificationHUDManager>();
+                notification.CreateNotification("Press TAB to review.");
+                notification.CreateNotification("Green transparent sphere: AmmoPack.");
+                notification.CreateNotification("Hit SHIFT to speed up.");
+            }
         }
 
         void Update()
@@ -150,6 +164,8 @@ namespace Unity.FPS
                 {
                     m_AccumulatedRecoil += Vector3.back * activeWeapon.RecoilForce;
                     m_AccumulatedRecoil = Vector3.ClampMagnitude(m_AccumulatedRecoil, MaxRecoilDistance);
+
+
                 }
             }
 
