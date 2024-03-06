@@ -111,7 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponName: Blaster
-  WeaponIcon: {fileID: 21300000, guid: 2b5b80f3ebc88174a8c662e280fdb09c, type: 3}
   CrosshairDataDefault:
     CrosshairSprite: {fileID: 21300000, guid: e881aa18189b12f4e915fc5b14ddc421, type: 3}
     CrosshairSize: 55
@@ -131,14 +130,15 @@ MonoBehaviour:
   RecoilForce: 1
   AimZoomRatio: 0.5
   AimOffset: {x: 0, y: 0.075, z: 0}
-  AutomaticReload: 1
+  AutomaticReload: 0
   AmmoReloadRate: 30
   AmmoReloadDelay: 0.5
-  MaxAmmo: 30
+  MaxAmmo: 60
   AutomaticReleaseOnCharged: 1
   MaxChargeDuration: 2
   AmmoUsedOnStartCharge: 1
   AmmoUsageRateWhileCharging: 2
+  m_CurrentAmmo: 0
 --- !u!1 &6867164317952318007
 GameObject:
   m_ObjectHideFlags: 0

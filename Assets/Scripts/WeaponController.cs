@@ -100,7 +100,7 @@ namespace Unity.FPS
         public UnityAction OnShoot;
         public event Action OnShootProcessed;
 
-        float m_CurrentAmmo;
+        public float m_CurrentAmmo;
         float m_LastTimeShot = Mathf.NegativeInfinity;
         public float LastChargeTriggerTimestamp { get; private set; }
         Vector3 m_LastMuzzlePosition;

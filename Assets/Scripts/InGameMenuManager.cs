@@ -46,7 +46,9 @@ namespace Unity.FPS
             if (Input.GetKeyDown(KeyCode.R))
             {
                 ClosePauseMenu();
-                SceneManager.LoadScene("MainScene");
+                Form form = FindObjectOfType<Form>();
+                form.Send(Form.EndType.Restart);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
 
             if (MenuRoot.activeSelf && Input.GetKeyDown(KeyCode.M))

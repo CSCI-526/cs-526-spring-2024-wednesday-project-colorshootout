@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Cube_Color
+  - Cube_Gravity
   layers:
   - Default
   - TransparentFX

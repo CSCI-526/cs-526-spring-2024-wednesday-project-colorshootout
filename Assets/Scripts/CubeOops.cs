@@ -19,7 +19,7 @@ public class CubeOops : MonoBehaviour
         if (transform.position.y < -100 && !notified)
         {
             NotificationHUDManager notification = FindObjectOfType<NotificationHUDManager>();
-            notification.CreateNotification("If it feels stuck, consider restarting and shooting cautiously.");
+            notification.CreateNotification("When feeling stuck, consider restarting and shooting cautiously.");
             notified = true;
         }
     }

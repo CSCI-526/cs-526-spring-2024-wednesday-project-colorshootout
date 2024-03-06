@@ -22,5 +22,22 @@ namespace Unity.FPS
         {
             SceneManager.LoadScene(SceneName);
         }
+
+        public void LoadCurrLevelScene()
+        {
+            SceneManager.LoadScene(LevelManager.levels[LevelManager.currLevel]);
+        }
+
+        public void LoadNextLevelScene()
+        {
+            LevelManager.GoToNextLevel();
+            SceneManager.LoadScene(LevelManager.levels[LevelManager.currLevel]);
+        }
+
+        public void StartScene()
+        {
+            LevelManager.currLevel = 0;
+            SceneManager.LoadScene(LevelManager.levels[LevelManager.currLevel]);
+        }
     }
 }

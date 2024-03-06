@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.FPS;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Destructable), typeof(Actor), typeof(Health))]
 
@@ -25,7 +26,8 @@ public class CubeInteract : MonoBehaviour
 
     void OnPointDamaged(float damage, Vector3 point, GameObject damageSource)
     {
-
+        Form form = FindObjectOfType<Form>();
+        form._ammoReceive[form.cubeMap[gameObject.name]] += 1;
         PlayerCharacterController m_Controller = damageSource.GetComponent<PlayerCharacterController>();
         if (m_Controller != null)
         {
@@ -36,7 +38,7 @@ public class CubeInteract : MonoBehaviour
                                          new Vector3(m_Controller.color.r, m_Controller.color.g, m_Controller.color.b));
             Vector3 scaleChange = new Vector3(0, 0, 0);
             // Debug.Log("localPoint: " + localPoint);
-            float changeValue = 0.2f;
+            float changeValue = 0.4f;
             if (Mathf.Abs(localPoint.x) >= 0.5f - eps[0] && Mathf.Abs(localPoint.y) >= 0.5f - eps[1] && Mathf.Abs(localPoint.z) >= 0.5f - eps[2])
             {
                 Debug.Log("Point is on a corner");
@@ -50,7 +52,6 @@ public class CubeInteract : MonoBehaviour
                 else if (localPoint.z <= -0.5f + eps[2]) scaleChange.z = changeValue;
                 else if (localPoint.z >= 0.5f - eps[2]) scaleChange.z = changeValue;
             }
-            Debug.Log("colorDifference: " + colorDifference);
             if (colorDifference < 1f) // You can adjust this threshold as needed
             {
                 // Increase scale if color difference is small
@@ -58,8 +59,11 @@ public class CubeInteract : MonoBehaviour
             }
             else
             {
-                // Decrease scale if color difference is large
-                transform.localScale -= scaleChange;
+                transform.localScale = new Vector3(
+                    Mathf.Max(0.2f, transform.localScale.x - scaleChange.x),
+                    Mathf.Max(0.2f, transform.localScale.y - scaleChange.y),
+                    Mathf.Max(0.2f, transform.localScale.z - scaleChange.z)
+                );
             }
         }
     }
@@ -118,7 +122,10 @@ public class CubeInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (transform.position.y < -500)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

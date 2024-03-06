@@ -31,11 +31,17 @@ namespace Unity.FPS
         public float ColorChangeSharpness = 5f;
 
         float m_PreviousValue;
-
+        bool notificationSent = false;
         public void Initialize(float fullValueRatio, float emptyValueRatio)
         {
             FullValue = fullValueRatio;
             EmptyValue = emptyValueRatio;
+            PlayerCharacterController m_Controller = FindObjectOfType<PlayerCharacterController>();
+            // convert m_Controller.color to hsv, and decrease the saturation, then convert back
+            Color.RGBToHSV(m_Controller.color, out float H, out float S, out float V);
+            S -= 0.6f; // decrease the saturation by 20%
+            S = Mathf.Clamp01(S); // ensure S stays within the range [0, 1]
+            DefaultForegroundColor = Color.HSVToRGB(H, S, V);
 
             m_PreviousValue = fullValueRatio;
         }
@@ -49,6 +55,12 @@ namespace Unity.FPS
             else if (currentRatio < EmptyValue)
             {
                 BackgroundImage.color = FlashBackgroundColorEmpty;
+                if (!notificationSent)
+                {
+                    NotificationHUDManager notification = FindObjectOfType<NotificationHUDManager>();
+                    notification.CreateNotification("Out of ammo? Hit R to restart!");
+                    notificationSent = true;
+                }
             }
             else
             {

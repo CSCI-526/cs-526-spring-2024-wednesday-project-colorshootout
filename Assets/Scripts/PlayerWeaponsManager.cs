@@ -123,14 +123,14 @@ namespace Unity.FPS
             if (SceneManager.GetActiveScene().name == "Level 1") { 
             NotificationHUDManager notification = FindObjectOfType<NotificationHUDManager>();
             notification.CreateNotification("Press TAB to review.");
-            notification.CreateNotification("Orange transparent sphere: target.");
+            notification.CreateNotification("Approach the Orange transparent sphere: target.");
             notification.CreateNotification("Left click to shoot, right click to aim.");
             notification.CreateNotification("WASD to move, SPACE to jump.");
             } else if (SceneManager.GetActiveScene().name == "Level 2")
             {
                 NotificationHUDManager notification = FindObjectOfType<NotificationHUDManager>();
                 notification.CreateNotification("Press TAB to review.");
-                notification.CreateNotification("Green transparent sphere: AmmoPack.");
+                notification.CreateNotification("You might approach the Green transparent sphere to get AmmoPack.");
                 notification.CreateNotification("Hit SHIFT to speed up.");
             }
         }

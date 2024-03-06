@@ -20,8 +20,6 @@ public class AllLevelCleared : MonoBehaviour
                 // »•µÙNextButton
                 Destroy(nextButton);
             }
-
-
         }
     }
 

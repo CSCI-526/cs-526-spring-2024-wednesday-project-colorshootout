@@ -24,7 +24,6 @@ namespace Unity.FPS
         [Tooltip("Duration of delay before the win message")]
         public float DelayBeforeWinMessage = 2f;
 
-        // [Tooltip("Sound played on win")] public AudioClip VictorySound;
 
         [Header("Lose")]
         [Tooltip("This string has to be the name of the scene you want to load when losing")]
@@ -36,6 +35,7 @@ namespace Unity.FPS
         float m_TimeLoadEndGameScene;
         string m_SceneToLoad;
 
+
         void Awake()
         {
             EventManager.AddListener<AllObjectivesCompletedEvent>(OnAllObjectivesCompleted);
@@ -44,6 +44,9 @@ namespace Unity.FPS
 
         void Start()
         {
+            string curr = SceneManager.GetActiveScene().name;
+            LevelManager.currLevel = System.Array.IndexOf(LevelManager.levels, curr);
+            //DontDestroyOnLoad(gameObject);
             // AudioUtility.SetMasterVolume(1);
         }
 
@@ -81,7 +84,6 @@ namespace Unity.FPS
             {
                 m_SceneToLoad = WinSceneName;
                 m_TimeLoadEndGameScene = Time.time + EndSceneLoadDelay + DelayBeforeFadeToBlack;
-
                 DisplayMessageEvent displayMessage = Events.DisplayMessageEvent;
                 displayMessage.Message = WinGameMessage;
                 displayMessage.DelayBeforeDisplay = DelayBeforeWinMessage;
