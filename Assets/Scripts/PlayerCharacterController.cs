@@ -187,7 +187,7 @@ namespace Unity.FPS
             if (!IsDead && transform.position.y < KillHeight)
             {
                 Form form = FindObjectOfType<Form>();
-                form.Send(Form.EndType.Fall);
+                if (form != null) form.Send(Form.EndType.Fall);
                 m_Health.Kill();
             }
 

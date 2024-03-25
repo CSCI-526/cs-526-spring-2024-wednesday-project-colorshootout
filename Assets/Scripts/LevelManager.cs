@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour
 {
 
     public static int currLevel = 0;
-    public static string[] levels = new string[] { "Level 1", "Level 2" };
+    public static string[] levels = new string[] { "Level 0", "Level 1", "Level 2" };
     public static string WinSceneName = "WinScene";
 
 

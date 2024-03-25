@@ -26,8 +26,9 @@ public class CubeInteract : MonoBehaviour
 
     void OnPointDamaged(float damage, Vector3 point, GameObject damageSource)
     {
-        Form form = FindObjectOfType<Form>();
-        form._ammoReceive[form.cubeMap[gameObject.name]] += 1;
+        Form form = FindObjectOfType<Form>(); 
+        if (form != null)
+            form._ammoReceive[form.cubeMap[gameObject.name]] += 1;
         PlayerCharacterController m_Controller = damageSource.GetComponent<PlayerCharacterController>();
         if (m_Controller != null)
         {

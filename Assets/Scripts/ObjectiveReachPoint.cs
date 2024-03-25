@@ -47,7 +47,7 @@ namespace Unity.FPS
             {
                 PlayerCharacterController m_Controller = FindObjectOfType<PlayerCharacterController>();
                 Form form = FindObjectOfType<Form>();
-                form.Send(Form.EndType.Timeout);
+                if (form != null) form.Send(Form.EndType.Timeout);
                 startProcessingTimeout = true;
                 m_Controller.KillMySelf();
             }
@@ -64,8 +64,8 @@ namespace Unity.FPS
             if (player != null)
             {
                 Form form = FindObjectOfType<Form>();
-                
-                form.Send(Form.EndType.Win);
+                if (form != null)
+                    form.Send(Form.EndType.Win);
 
                 CompleteObjective(string.Empty, string.Empty, "Objective complete : " + Title);
             }

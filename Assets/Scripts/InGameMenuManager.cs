@@ -47,7 +47,8 @@ namespace Unity.FPS
             {
                 ClosePauseMenu();
                 Form form = FindObjectOfType<Form>();
-                form.Send(Form.EndType.Restart);
+                if (form != null)
+                    form.Send(Form.EndType.Restart);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
 
