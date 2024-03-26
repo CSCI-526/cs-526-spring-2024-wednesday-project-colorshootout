@@ -29,35 +29,46 @@ public class TargetManager : MonoBehaviour
         Vector3 playerPos = m_Controller.transform.position;
 
         // TODO Determine whether playerPos is within the range of floorMap[NextFloor], judge x, y, z
-        // If so, the current target is completed, delete the current target, and initialize the next target
-        GameObject CurrTarget = GameObject.FindGameObjectWithTag("CurrTarget");
-        if (CurrTarget) // Set the current target to complete
+        GameObject targetFloor = floorMap[NextFloor];
+        Bounds floorBounds = targetFloor.GetComponent<Collider>().bounds;
+        // 判断player是否在floor上
+        if (floorBounds.Contains(playerPos))
         {
-            ObjectTutoring myScript = CurrTarget.GetComponent<ObjectTutoring>();
-            if (myScript != null)
+            // If so, the current target is completed, delete the current target, and initialize the next target
+            GameObject CurrTarget = GameObject.FindGameObjectWithTag("CurrTarget");
+            //Debug.Log("CurrTarget: " + CurrTarget);
+
+            if (CurrTarget) // Set the current target to complete
             {
-                myScript.SetCompleted();
+                ObjectTutoring myScript = CurrTarget.GetComponent<ObjectTutoring>();
+                if (myScript != null)
+                {
+                    myScript.SetCompleted();
+                }
             }
-        }
-        Destroy(CurrTarget); // Delete the current target
-        NextFloor = (int.Parse(NextFloor) + 1).ToString();  // floor = next
-        // Initialize a new target prefab
-        // When NextFloor = "7": Do nothing
-        if (TargetPrefab && !isTargetCreated)
-        {
-            var targetInstance = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
-            var myScript = targetInstance.GetComponent<ObjectTutoring>();
-            if (myScript != null)
+            //Destroy(CurrTarget); // Delete the current target
+            // NextFloor = (int.Parse(NextFloor) + 1).ToString();  // floor = next
+            // Initialize a new target prefab
+            // When NextFloor = "7": Do nothing
+            if (TargetPrefab && !isTargetCreated)
             {
-                myScript.Title = "haha load from cs\n"; // 设置新的
-                myScript.Description = "111 cs\n";
+                var targetInstance = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
+                var myScript = targetInstance.GetComponent<ObjectTutoring>();
+                if (myScript != null)
+                {
+                    myScript.Title = "haha load from cs\n"; // 设置新的
+                    myScript.Description = "111 cs\n";
+                }
             }
+            isTargetCreated = true; // maybe don't need this
+                                    // When NextFloor = "2": Move, jump, accelerate with SHIFT, follow the arrow instructions
+                                    // When NextFloor = "3": Shoot the same color cube, walk over
+                                    // When NextFloor = "4": Pick up the weapon package, shoot different color cube, jump over
+                                    // When NextFloor = "5": shift + jump, jump further
+                                    // When NextFloor = "6": Touch the target, complete the task
         }
-        isTargetCreated = true; // maybe don't need this
-        // When NextFloor = "2": Move, jump, accelerate with SHIFT, follow the arrow instructions
-        // When NextFloor = "3": Shoot the same color cube, walk over
-        // When NextFloor = "4": Pick up the weapon package, shoot different color cube, jump over
-        // When NextFloor = "5": shift + jump, jump further
-        // When NextFloor = "6": Touch the target, complete the task
+
     }
+
+
 }
