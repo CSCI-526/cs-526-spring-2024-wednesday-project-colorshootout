@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8891568023779069294}
   m_Layer: 0
   m_Name: CurrentTarget
-  m_TagString: Untagged
+  m_TagString: CurrTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,4 +47,5 @@ MonoBehaviour:
   Title: Learn how to move, run, and jump.
   Description: Try W/A/S/D/Space, use mouse to look around.
   IsOptional: 1
-  DelayVisible: 1
+  DelayVisible: 0.5
+  IsCompleted: 0

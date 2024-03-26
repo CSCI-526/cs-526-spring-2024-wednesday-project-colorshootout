@@ -652,7 +652,7 @@ PrefabInstance:
     - target: {fileID: 5963937743390997974, guid: 9b7d8a511d161be4d9c32aae2e937170,
         type: 3}
       propertyPath: m_Name
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5963937743390997974, guid: 9b7d8a511d161be4d9c32aae2e937170,
         type: 3}
@@ -3870,6 +3870,7 @@ MonoBehaviour:
   Description: Follow the arrow on the ground, have fun!
   IsOptional: 0
   DelayVisible: 0
+  Completed: 0
 --- !u!1001 &542397131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3941,7 +3942,7 @@ PrefabInstance:
     - target: {fileID: 5963937743390997974, guid: 9b7d8a511d161be4d9c32aae2e937170,
         type: 3}
       propertyPath: m_Name
-      value: 5
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 5963937743390997974, guid: 9b7d8a511d161be4d9c32aae2e937170,
         type: 3}
@@ -3951,7 +3952,7 @@ PrefabInstance:
     - target: {fileID: 5963937743390997974, guid: 9b7d8a511d161be4d9c32aae2e937170,
         type: 3}
       propertyPath: m_TagString
-      value: InteractiveFloor
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
