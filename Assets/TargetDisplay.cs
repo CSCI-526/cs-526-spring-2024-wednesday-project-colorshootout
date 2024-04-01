@@ -106,7 +106,7 @@ public class TargetDisplay : MonoBehaviour
                         if (myScript != null)
                         {
                             myScript.Title = "Shoot at the faces of non-green cubes.";
-                            myScript.Description = "Let's see what happen.";
+                            myScript.Description = "Let's see what will happen.";
                         }
 
                     }
