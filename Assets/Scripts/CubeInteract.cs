@@ -11,7 +11,7 @@ public class CubeInteract : MonoBehaviour
 {
     Health m_Health;
     public UnityAction onDamaged;
-    public Color m_Color = Color.white;
+    public Color m_Color;
     // Start is called before the first frame update
     void Start()
     {

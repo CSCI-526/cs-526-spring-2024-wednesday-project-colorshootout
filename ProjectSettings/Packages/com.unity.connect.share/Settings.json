@@ -9,7 +9,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"D:/Code/Unity/FPS/Build;D:/Code/Unity/FPS/Builds;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"D:/Code/Unity/cs-526-spring-2024-wednesday-project-colorshootout/Build;D:/Code/Unity/FPS/Build;D:/Code/Unity/FPS/Builds;;;;;;;\"}"
             }
         ]
     }

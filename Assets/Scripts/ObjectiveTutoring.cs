@@ -8,8 +8,6 @@ namespace Unity.FPS
 {
     public class ObjectTutoring: Objective
     {
-        public bool Completed = false;
-        bool Finished = false;
         void Awake()
         {
             

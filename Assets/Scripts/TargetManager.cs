@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using Unity.FPS;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class TargetManager : MonoBehaviour
