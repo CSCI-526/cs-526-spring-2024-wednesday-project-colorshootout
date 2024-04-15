@@ -12,6 +12,7 @@ public class CubeInteract : MonoBehaviour
     Health m_Health;
     public UnityAction onDamaged;
     public Color m_Color;
+    int m_Damage = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,7 @@ public class CubeInteract : MonoBehaviour
 
     void OnPointDamaged(float damage, Vector3 point, GameObject damageSource)
     {
-        Form form = FindObjectOfType<Form>(); 
+        Form form = FindObjectOfType<Form>();
         if (form != null)
             form._ammoReceive[form.cubeMap[gameObject.name]] += 1;
         PlayerCharacterController m_Controller = damageSource.GetComponent<PlayerCharacterController>();
@@ -38,33 +39,38 @@ public class CubeInteract : MonoBehaviour
             float colorDifference = Vector3.Distance(new Vector3(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b),
                                          new Vector3(m_Controller.color.r, m_Controller.color.g, m_Controller.color.b));
             Vector3 scaleChange = new Vector3(0, 0, 0);
-            // Debug.Log("localPoint: " + localPoint);
-            float changeValue = 0.4f;
-            if (Mathf.Abs(localPoint.x) >= 0.5f - eps[0] && Mathf.Abs(localPoint.y) >= 0.5f - eps[1] && Mathf.Abs(localPoint.z) >= 0.5f - eps[2])
-            {
-                Debug.Log("Point is on a corner");
-            }
-            else
-            {
-                if (localPoint.x <= -0.5f + eps[0]) scaleChange.x = changeValue;
-                else if (localPoint.x >= 0.5f - eps[0]) scaleChange.x = changeValue;
-                else if (localPoint.y <= -0.5f + eps[1]) scaleChange.y = changeValue;
-                else if (localPoint.y >= 0.5f - eps[1]) scaleChange.y = changeValue;
-                else if (localPoint.z <= -0.5f + eps[2]) scaleChange.z = changeValue;
-                else if (localPoint.z >= 0.5f - eps[2]) scaleChange.z = changeValue;
-            }
+            float changeValue = 0.2f;
+            if (localPoint.x <= -0.5f + eps[0]) scaleChange.x = changeValue;
+            else if (localPoint.x >= 0.5f - eps[0]) scaleChange.x = changeValue;
+            else if (localPoint.y <= -0.5f + eps[1]) scaleChange.y = changeValue;
+            else if (localPoint.y >= 0.5f - eps[1]) scaleChange.y = changeValue;
+            else if (localPoint.z <= -0.5f + eps[2]) scaleChange.z = changeValue;
+            else if (localPoint.z >= 0.5f - eps[2]) scaleChange.z = changeValue;
             if (colorDifference < 1f) // You can adjust this threshold as needed
             {
                 // Increase scale if color difference is small
-                transform.localScale += scaleChange;
+                transform.localScale += scaleChange * 2f;
             }
             else
             {
-                transform.localScale = new Vector3(
-                    Mathf.Max(0.2f, transform.localScale.x - scaleChange.x),
-                    Mathf.Max(0.2f, transform.localScale.y - scaleChange.y),
-                    Mathf.Max(0.2f, transform.localScale.z - scaleChange.z)
-                );
+                if (transform.localScale.x > 0.1f && transform.localScale.y > 0.1f && transform.localScale.z > 0.1f)
+                {
+                    float minScale = 0.1f; // 最小可能的scale
+                    float maxScale = 10.0f; // 最大可能的scale
+                    float scaleFactor = (transform.localScale.magnitude - minScale) / (maxScale - minScale);
+                    transform.localScale = new Vector3(
+                                            Mathf.Max(0.1f, transform.localScale.x - scaleFactor * scaleChange.x),
+                                            Mathf.Max(0.1f, transform.localScale.y - scaleFactor * scaleChange.y),
+                                            Mathf.Max(0.1f, transform.localScale.z - scaleFactor * scaleChange.z));
+                }
+                else
+                {
+                    m_Damage -= 1;
+                    if (m_Damage <= 0)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
             }
         }
     }

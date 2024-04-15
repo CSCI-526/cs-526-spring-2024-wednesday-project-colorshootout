@@ -11424,7 +11424,6 @@ MonoBehaviour:
   MaxSpeedCrouchedRatio: 0.5
   MaxSpeedInAir: 10
   AccelerationSpeedInAir: 25
-  SprintSpeedModifier: 1.5
   KillHeight: -50
   RotationSpeed: 200
   AimingRotationMultiplier: 0.4
@@ -11508,7 +11507,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: 1
     m_CustomResolution: -1
     m_Strength: 1

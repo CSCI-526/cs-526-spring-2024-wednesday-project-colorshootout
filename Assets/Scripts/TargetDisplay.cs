@@ -48,56 +48,81 @@ public class TargetDisplay : MonoBehaviour
         {
             switch (floor)
             {
-                case "1":
+                case "0.1":
                     if (currentTarget == null)
                     {
                         currentTarget = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
                         var myScript = currentTarget.GetComponent<ObjectTutoring>();
                         if (myScript != null)
                         {
-                            myScript.Title = "Explore, move, sprint, and jump. Follow the ground arrow.";
-                            myScript.Description = "Use W A S D for movement, SPACE for jumping, SHIFT for running, and your mouse to look around.";
+                            myScript.Title = "Go to next platform.";
+                            myScript.Description = "Try WASD / SPACE, and move MOUSE to look around.";
                         }
                     }
                     break;
-                case "2":
+                case "0.2":
                     if (currentTarget == null)
                     {
                         currentTarget = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
                         var myScript = currentTarget.GetComponent<ObjectTutoring>();
                         if (myScript != null)
                         {
-                            myScript.Title = "Shoot left or right face of green cube to make it wider. Then walking through.";
-                            myScript.Description = "Use your mouse to aim (Right Click) and fire (Left Click).";
+                            myScript.Title = "Go to next platform.";
+                            myScript.Description = "Hold W and SHIFT to speed up.";
                         }
                     }
                     break;
-                case "3":
+                case "0.3":
                     if (currentTarget == null)
                     {
                         currentTarget = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
                         var myScript = currentTarget.GetComponent<ObjectTutoring>();
                         if (myScript != null)
                         {
-                            myScript.Title = "Approach and collect the AmmoPack. Follow the arrow to next platform";
-                            myScript.Description = "The green transparent sphere!";
-                        }
-                    }
-                    break;
-                case "4":
-                    if (currentTarget == null)
-                    {
-                        currentTarget = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
-                        var myScript = currentTarget.GetComponent<ObjectTutoring>();
-                        if (myScript != null)
-                        {
-                            myScript.Title = "Shoot the front of green cube to form a bridge for walking or jumping.";
-                            myScript.Description = "Experiment by shooting different faces of the cube.";
+                            myScript.Title = "Hold W, SHIFT and Space to perform a long jump.";
+                            myScript.Description = "Hold the key simultaneously until you land.";
                         }
 
                     }
                     break;
-                case "5":
+                case "0.4":
+                    if (currentTarget == null)
+                    {
+                        currentTarget = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
+                        var myScript = currentTarget.GetComponent<ObjectTutoring>();
+                        if (myScript != null)
+                        {
+                            myScript.Title = "Reach the orange target point to finish.";
+                            myScript.Description = "";
+                        }
+
+                    }
+                    break;
+                case "1.1":
+                    if (currentTarget == null)
+                    {
+                        currentTarget = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
+                        var myScript = currentTarget.GetComponent<ObjectTutoring>();
+                        if (myScript != null)
+                        {
+                            myScript.Title = "Shoot left or right face of green cube.";
+                            myScript.Description = "Make it wider. Then walking through.";
+                        }
+                    }
+                    break;
+                case "1.2":
+                    if (currentTarget == null)
+                    {
+                        currentTarget = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
+                        var myScript = currentTarget.GetComponent<ObjectTutoring>();
+                        if (myScript != null)
+                        {
+                            myScript.Title = "Shoot different faces of green cube.";
+                            myScript.Description = "Form a bridge for jumping or walking.";
+                        }
+                    }
+                    break;
+                case "2.0":
                     // Debug.Log("Current target: Pick up the weapon package, shoot different color cube, jump over");
                     if (currentTarget == null)
                     {
@@ -105,52 +130,26 @@ public class TargetDisplay : MonoBehaviour
                         var myScript = currentTarget.GetComponent<ObjectTutoring>();
                         if (myScript != null)
                         {
-                            myScript.Title = "Shoot at the faces of non-green cubes.";
-                            myScript.Description = "Let's see what will happen.";
+                            myScript.Title = "Shoot faces of non-green cubes";
+                            myScript.Description = "Make it smaller.";
                         }
 
                     }
                     break;
-                case "5.1":
+                case "2.1":
                     if (currentTarget == null)
                     {
                         currentTarget = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
                         var myScript = currentTarget.GetComponent<ObjectTutoring>();
                         if (myScript != null)
                         {
-                            myScript.Title = "Shoot some thing to make it possible to go ahead!";
-                            myScript.Description = "Think about the hit interaction of green cube and non-green cube.";
+                            myScript.Title = "Shoot green cubes and non-green cubes.";
+                            myScript.Description = "Make possible to go ahead!";
                         }
 
                     }
                     break;
-                case "6":
-                    if (currentTarget == null)
-                    {
-                        currentTarget = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
-                        var myScript = currentTarget.GetComponent<ObjectTutoring>();
-                        if (myScript != null)
-                        {
-                            myScript.Title = "Master the art of long jumps.";
-                            myScript.Description = "Hold W, SHIFT, and Space simultaneously to perform a long jump. Hold the key until you are landing.";
-                        }
-
-                    }
-                    break;
-                case "7":
-                    // Debug.Log("Current target: Touch the target, complete the task");
-                    if (currentTarget == null)
-                    {
-                        currentTarget = Instantiate(TargetPrefab, transform.position, Quaternion.identity);
-                        var myScript = currentTarget.GetComponent<ObjectTutoring>();
-                        if (myScript != null)
-                        {
-                            myScript.Title = "Reach and touch the orange target point to complete the tutorial.";
-                            myScript.Description = "Best of luck and enjoy the game!";
-                        }
-
-                    }
-                    break;
+                
                 default:
                     // Debug.Log("No target for this floor");
                     break;

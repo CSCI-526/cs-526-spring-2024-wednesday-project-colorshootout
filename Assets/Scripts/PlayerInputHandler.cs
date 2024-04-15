@@ -54,7 +54,7 @@ namespace Unity.FPS
                     Input.GetAxisRaw(GameConstants.k_AxisNameVertical));
 
                 // constrain move input to a maximum magnitude of 1, otherwise diagonal movement might exceed the max move speed defined
-                move = Vector3.ClampMagnitude(move, 1);
+                move = Vector3.ClampMagnitude(0.9f * move, 1);
 
                 return move;
             }
