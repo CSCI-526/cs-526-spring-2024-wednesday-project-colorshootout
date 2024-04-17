@@ -26,7 +26,7 @@ namespace Unity.FPS
 
         [Header("Movement")]
         [Tooltip("Max movement speed when grounded (when not sprinting)")]
-        float MaxSpeedOnGround = 9f;
+        float MaxSpeedOnGround = 8f;
 
         [Tooltip(
             "Sharpness for the movement when grounded, a low value will make the player accelerate and decelerate slowly, a high value will do the opposite")]
@@ -58,7 +58,7 @@ namespace Unity.FPS
 
         [Header("Jump")]
         [Tooltip("Force applied upward when jumping")]
-        float JumpForce = 8.5f;
+        float JumpForce = 7f;
 
         [Header("Stance")]
         [Tooltip("Ratio (0-1) of the character height where the camera will be at")]
