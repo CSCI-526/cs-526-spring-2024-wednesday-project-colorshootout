@@ -26,9 +26,9 @@ public class TargetDisplay : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (other.gameObject == player && this.name != lastFloor)
         {
-            // Íæ¼Ò½øÈëfloorµÄÇøÓò
+            // ï¿½ï¿½Ò½ï¿½ï¿½ï¿½floorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             // Debug.Log("Player is on the floor " + this.name);
-            // É¾³ýÉÏÒ»¸öfloor²úÉúµÄcurrentTarget
+            // É¾ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½floorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½currentTarget
             if (currentTarget != null)
             {
                 var myScript = currentTarget.GetComponent<ObjectTutoring>();
@@ -39,7 +39,7 @@ public class TargetDisplay : MonoBehaviour
                 Destroy(currentTarget);
                 currentTarget = null;
             }
-            // ÏÔÊ¾²¢´´½¨ÐÂµÄÄ¿±ê
+            // ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½Ä¿ï¿½ï¿½
             ShowCurrentTarget(this.name);
             lastFloor = this.name;
         }
@@ -105,7 +105,7 @@ public class TargetDisplay : MonoBehaviour
                         var myScript = currentTarget.GetComponent<ObjectTutoring>();
                         if (myScript != null)
                         {
-                            myScript.Title = "Shoot left or right face of green cube.";
+                            myScript.Title = "Shoot left or right side of the green cube.";
                             myScript.Description = "Make it wider. Then walking through.";
                         }
                     }
@@ -117,7 +117,7 @@ public class TargetDisplay : MonoBehaviour
                         var myScript = currentTarget.GetComponent<ObjectTutoring>();
                         if (myScript != null)
                         {
-                            myScript.Title = "Shoot different faces of green cube.";
+                            myScript.Title = "Shoot different sides of green cube.";
                             myScript.Description = "Form a bridge for jumping or walking.";
                         }
                     }
@@ -130,7 +130,7 @@ public class TargetDisplay : MonoBehaviour
                         var myScript = currentTarget.GetComponent<ObjectTutoring>();
                         if (myScript != null)
                         {
-                            myScript.Title = "Shoot faces of non-green cubes";
+                            myScript.Title = "Shoot one side of non-green cubes";
                             myScript.Description = "Make it smaller.";
                         }
 

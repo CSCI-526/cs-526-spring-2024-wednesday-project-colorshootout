@@ -65,7 +65,7 @@ namespace Unity.FPS
         float CameraHeightRatio = 0.9f;
 
         [Tooltip("Height of character when standing")]
-        float CapsuleHeightStanding = 2.0f;
+        float CapsuleHeightStanding = 1.8f;
 
         [Tooltip("Height of character when crouching")]
         float CapsuleHeightCrouching = 0.9f;
